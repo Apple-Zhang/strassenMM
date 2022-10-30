@@ -10,13 +10,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "gemm.h"F
+#include "gemm.h"
 
 int main(int argc, char *argv[])
 {
     int m, n, p;
     if (argc >= 2) {
         m = atoi(argv[1]);
+        if (m == 0 || m < 0) {
+            puts("Please enter an positive integer.");
+            return -1;
+        }
     }
     else {
         m = 1024;
@@ -30,7 +34,7 @@ int main(int argc, char *argv[])
     int ldb = n;
     int ldc = m;
 
-    // memory allocatino
+    // memory allocation
     fdata *a   = ALLOC_ARR(m*lda);
     fdata *b   = ALLOC_ARR(n*ldb);
     fdata *c   = ALLOC_ARR(m*ldc);
