@@ -5,8 +5,8 @@
 
 typedef double fdata;
 
-// allocate fdata with 16 bytes alignment to optimize memory
-#define ALLOC_ARR(n) (fdata*)calloc_align(16, (n)*sizeof(fdata))
+// allocate fdata with alignment to optimize memory and cache
+#define ALLOC_ARR(n) (fdata*)calloc_align(sizeof(fdata)*4, (n)*sizeof(fdata))
 #define STRAN_THR 64
 
 void *calloc_align(size_t alignment_, size_t size_) {
