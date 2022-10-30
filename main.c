@@ -1,10 +1,11 @@
 /* matrix multiplication with strassen alg */
 /* matrix is stored with row-major order. */
 /* Written by Junhong Zhang */
-
 // C = A*B
 // (m*n) = (m*p) * (p*n);
 // where we assume m = n = p;
+
+// compile with: gcc main.c -o main -O3
 
 #include <sys/time.h>
 #include <stdio.h>
